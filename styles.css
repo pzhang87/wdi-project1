@@ -1,0 +1,40 @@
+body {
+  color: white;
+  background-color: black;
+  font-family: sans-serif;
+}
+
+.board {
+  margin: 0 auto;
+  width: 50%;
+  position: relative;
+}
+
+.P1Display {
+  margin: 0 auto;
+  text-align: center;
+  padding: 1em;
+  border: 1px solid white;
+  /*float: left;*/
+}
+
+.P2Display {
+  margin: 0 auto;
+  text-align: center;
+  padding: 1em;
+  border: 1px solid white;
+  /*float: right;*/
+}
+
+.P1Display . {
+  padding: 1em;
+}
+
+.P2Display . {
+  padding: 1em;
+}
+
+.controls {
+  margin: 0 auto;
+  padding: 1em;
+}
