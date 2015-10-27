@@ -6,8 +6,8 @@ body {
 
 .board {
   margin: 0 auto;
-  width: 50%;
   position: relative;
+  float: left;
 }
 
 .P1Display {
@@ -15,18 +15,40 @@ body {
   text-align: center;
   padding: 1em;
   border: 1px solid white;
-  /*float: left;*/
+  height: 25%;
 }
+
 
 .P2Display {
   margin: 0 auto;
   text-align: center;
   padding: 1em;
   border: 1px solid white;
-  /*float: right;*/
+  height: 25%;
 }
 
 .controls {
   margin: 0 auto;
-  padding: 1em;
+  padding: 21%;
+}
+
+.P1Image {
+  float: left;
+  padding: 1em 1em 0;
+  background-color: black;
+  margin: 1em 1em 0;
+  border: 1px solid white;
+}
+
+
+.P2Image {
+  float: right;
+  padding: 0em 1em 1em;
+  background-color: black;
+  margin: 0em 1em 1em;
+  border: 1px solid white;
+}
+
+.clearfix {
+  overflow: auto;
 }

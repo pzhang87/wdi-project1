@@ -3,7 +3,26 @@ var inPlay = [];
 turns = 0;
 var isRunning = false;
 
-suits = ["E", "A", "W", "F"];
+suits = [Earth = {
+    name: "Earth",
+    abrv: "E",
+    color: "#006600",
+  },
+  Air = {
+    name: "Air",
+    abrv: "A",
+    color: "#CCFFFF",
+  },
+  Water = {
+    name: "Water",
+    abrv: "W",
+    color: "#0000CC",
+  },
+  Fire = {
+    name: "Fire",
+    abrv: "F",
+    color: "#990000",
+  }];
 ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 val = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
@@ -100,8 +119,10 @@ function playTurn(){
 
 function updateDisplay(){
   if ((p1Card && p2Card)) {
-    $(".P1Text").html(p1Card.rank + p1Card.suit);
-    $(".P2Text").html(p2Card.rank + p2Card.suit);
+    $(".P1Text").html(p1Card.rank + p1Card.suit.abrv);
+    $(".P1Image").css("background-color", p1Card.suit.color);
+    $(".P2Text").html(p2Card.rank + p2Card.suit.abrv);
+    $(".P2Image").css("background-color", p2Card.suit.color);
   }
   else {
     $(".P1Text").html("GAME OVER");
