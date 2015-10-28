@@ -2,30 +2,28 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>War!</title>
+  <title>War of the Elements</title>
   <script src="jquery-2.1.4.js"></script>
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
   <div class="container">
-    <div class="board">
+    <div class="board clearfix">
         <div class="P1Display clearfix">
           <div class="P1Info">
             <div class="P1Deck">P1Deck</div>
 
           </div>
         <div class="P1Image">
-          <div class="P1Text">P1Card</div>
-          <!-- <img class="cardback" src="blank.jpg" alt="P1Card" height="200" width="150"/> -->
+          <div class="P1Text hide">P1Card</div>
           <img id="P1cardface" src="blank2.jpg" alt="P1Card" height="200" width="150"/>
         </div>
       </div>
 
         <div class="P2Display">
         <div class="P2Image">
-          <div class="P2Text">P2Card</div>
-          <!-- <img class="cardback" src="blank.jpg" alt="P2Card" height="200" width="150"/> -->
-          <img id="P2cardface" src="blank2.jpg" alt="P1Card" height="200" width="150"/>
+          <div class="P2Text hide">P2Card</div>
+          <img id="P2cardface" src="blank2.jpg" alt="P2Card" height="200" width="150"/>
         </div>
         <div class="P2Info">
             <div class="P2Deck">P2Deck</div>
@@ -43,7 +41,7 @@
       </div>
 
       <div class="bottomright">
-        <div class="button"><button id="Fast Mode">Fast Mode: ON</button></div>
+        <div class="button"><button id="secret">?</button></div>
       </div>
     </div>
   </div>

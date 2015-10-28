@@ -2,6 +2,8 @@ var deck1, deck2, p1Card, p2Card;
 var inPlay = [];
 turns = 0;
 var isRunning = false;
+var animations = true;
+var turnWinner;
 
 suits = [Earth = {
     name: "Earth",
@@ -86,25 +88,29 @@ function initGame(){
   createDeck();
   shuffle(mainDeck);
   dealDecks();
-  $("#battle").on("click", playTurn)
   isRunning = true;
 
-  $(".P1Text").html("Player 1");
-  $(".P2Text").html("Player 2");
+  $(".P1Text").removeClass("hide");
+  $(".P2Text").removeClass("hide");
   $(".P1Deck").html("Cards Remaining: " + (deck1.length).toString());
   $(".P2Deck").html("Cards Remaining: " + (deck2.length).toString());
-}
 
-$("#newgame").on("click", initGame)
-$("#p1shuffle").on("click", function(){
-  shuffle(deck1);
-});
-$("#p2shuffle").on("click", function(){
-  shuffle(deck2);
-});
+  $("#p1shuffle").on("click", function(){
+    shuffle(deck1);
+  });
+  $("#p2shuffle").on("click", function(){
+    shuffle(deck2);
+  });
+  $("#fastmode").on("click", function(){
+    fastMode = !fastMode;
+    fastmode ? $("#fastmode").html("Fast Mode: ON") : $("#fastmode").html("Fast Mode: OFF");
+  });
+  playTurn();
+}
 
 function playTurn(){
   if (isRunning) {
+    clearAnimations();
     advanceDeck(1);
     updateDisplay();
 
@@ -116,18 +122,24 @@ function playTurn(){
     console.log("In Play: " + testArray);
 
     resolveBattle(p1Card, p2Card);
+    updateAnimations();
     checkWinner();
     updateDisplay();
+    }
+  else {
+      initGame();
     }
   }
 
 function updateDisplay(){
   if ((p1Card && p2Card)) {
     $(".P1Text").html(p1Card.rank + p1Card.suit.abrv);
-    $(".P1Image").css("background-color", p1Card.suit.color);
-    $("#P1cardface").attr("src", p1Card.suit.img)
     $(".P2Text").html(p2Card.rank + p2Card.suit.abrv);
+    $(".P1Image").css("background-color", p1Card.suit.color);
     $(".P2Image").css("background-color", p2Card.suit.color);
+    $("#P1cardface").fadeIn();
+    $("#P1cardface").attr("src", p1Card.suit.img)
+    $("#P2cardface").fadeIn();
     $("#P2cardface").attr("src", p2Card.suit.img)
   }
   else {
@@ -136,7 +148,6 @@ function updateDisplay(){
   }
   $(".P1Deck").html("Cards Remaining: " + (deck1.length).toString());
   $(".P2Deck").html("Cards Remaining: " + (deck2.length).toString());
-  //$("#contested_cards").html("Contested Cards: " + inPlay.length);
 }
 
 function advanceDeck(adv){
@@ -159,6 +170,7 @@ function advanceDeck(adv){
 }
 
 function resolveBattle(p1Card, p2Card){
+  updateDisplay();
   if ((p1Card && p2Card)) {
     if (p1Card.val > p2Card.val) {
       deck1 = deck1.concat(inPlay);
@@ -169,24 +181,40 @@ function resolveBattle(p1Card, p2Card){
     else {
       resolveWar(p1Card.val);
     }
+
     inPlay = [];
   }
 }
 
 function resolveWar(cardVal){
-  alert("war declared");
+  alert("War!")
   advanceDeck(cardVal);
-  $("#contested_cards").html("Contested Cards: " + inPlay.length);
-  alert("resolve war");
+  alert(cardVal + " cards set!");
   resolveBattle(p1Card, p2Card);
 
 }
 
 function checkWinner(){
   if (!(deck1.length && deck2.length)) {
-    var winner = (deck1.length > deck2.length) ? ("Player 1") : ("Player 2")
-    alert(winner + " won!");
+    var gameWinner = (deck1.length > deck2.length) ? ("Player 1") : ("Player 2")
+    alert(gameWinner + " won!");
     isRunning = false;
+  }
+}
+
+function clearAnimations(){
+  $(".P1Image").removeClass("turnWinner turnLoser")
+  $(".P2Image").removeClass("turnWinner turnLoser")
+}
+
+function updateAnimations(){
+  if (p1Card.val < p2Card.val) {
+    $(".P1Image").addClass("turnLoser");
+    $(".P2Image").addClass("turnWinner");
+  }
+  else {
+    $(".P1Image").addClass("turnWinner");
+    $(".P2Image").addClass("turnLoser");
   }
 }
 
@@ -200,4 +228,9 @@ function deckStatus(deck){
   console.log(checkedDeck);
 }
 
-initGame();
+$("#newgame").on("click", initGame)
+$("#battle").on("click", playTurn)
+$("#secret").on("click", function(){
+  alert("You've activated my trap card!")
+  document.location="https://www.youtube.com/watch?v=3Wyn1nH8XZ4"
+});

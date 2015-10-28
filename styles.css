@@ -4,6 +4,13 @@ body {
   font-family: Papyrus, fantasy, sans-serif;
 }
 
+.container {
+  margin: 0 auto;
+  position: relative;
+  left: 33%;
+  background-image: images/background.jpg;
+}
+
 .board {
   margin: 0 auto;
   position: relative;
@@ -17,7 +24,7 @@ body {
   padding: 1em 1em 0;
   border: 1px solid white;
   height: 25%;
-
+  border-radius: 10px 10px 0 0;
 }
 
 
@@ -27,6 +34,12 @@ body {
   padding: 0 1em 1em;
   border: 1px solid white;
   height: 25%;
+  border-radius: 0 0 10px 10px;
+
+}
+
+.hide {
+  display: none;
 }
 
 .P1Image {
@@ -69,7 +82,48 @@ body {
 }
 
 .controls {
-  width: 33%;
-  margin: 1em auto;
+  float: left;
+  margin: 0 1em 0 1em auto;
   position: relative;
+  padding: 1em;
+}
+
+.topright {
+  position: relative;
+}
+
+.centerright{
+  position: relative;
+  top: 212px;
+}
+
+.bottomright{
+  position: relative;
+  top: 425px;
+  width: 22px;
+}
+
+
+.turnWinner {
+  -webkit-animation: pulsate 1s ease-out;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 1.0;
+}
+
+@-webkit-keyframes pulsate {
+    0% {-webkit-transform: scale(1, 1); opacity: 1.0;}
+    50% {-webkit-transform: scale(1.01, 1.01); opacity: 0.9;}
+    100% {-webkit-transform: scale(1, 1); opacity: 1.0;}
+}
+
+.turnLoser {
+  -webkit-animation: fade 3s linear;
+  -webkit-animation-iteration-count: infinite;
+  opacity: 1.0;
+}
+
+@-webkit-keyframes fade {
+   0% {-webkit-transform: scale(1, 1); opacity: 0.75;}
+   50% {-webkit-transform: scale(1, 1); opacity: 0.25;}
+   100% {-webkit-transform: scale(1, 1); opacity: 0.75;}
 }
