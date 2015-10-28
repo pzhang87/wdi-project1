@@ -6,22 +6,26 @@ var isRunning = false;
 suits = [Earth = {
     name: "Earth",
     abrv: "E",
-    color: "#006600",
+    color: "#224422",
+    img: "images/earth.jpg"
   },
   Air = {
     name: "Air",
     abrv: "A",
-    color: "#CCFFFF",
+    color: "#CCCCDD",
+    img: "images/air.jpg"
   },
   Water = {
     name: "Water",
     abrv: "W",
     color: "#0000CC",
+    img: "images/water.jpg"
   },
   Fire = {
     name: "Fire",
     abrv: "F",
     color: "#990000",
+    img: "images/fire.jpg"
   }];
 ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 val = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
@@ -121,8 +125,10 @@ function updateDisplay(){
   if ((p1Card && p2Card)) {
     $(".P1Text").html(p1Card.rank + p1Card.suit.abrv);
     $(".P1Image").css("background-color", p1Card.suit.color);
+    $("#P1cardface").attr("src", p1Card.suit.img)
     $(".P2Text").html(p2Card.rank + p2Card.suit.abrv);
     $(".P2Image").css("background-color", p2Card.suit.color);
+    $("#P2cardface").attr("src", p2Card.suit.img)
   }
   else {
     $(".P1Text").html("GAME OVER");

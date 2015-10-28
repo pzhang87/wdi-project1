@@ -1,35 +1,32 @@
 body {
   color: white;
   background-color: black;
-  font-family: sans-serif;
+  font-family: Papyrus, fantasy, sans-serif;
 }
 
 .board {
   margin: 0 auto;
   position: relative;
   float: left;
+  left: 0;
 }
 
 .P1Display {
   margin: 0 auto;
   text-align: center;
-  padding: 1em;
+  padding: 1em 1em 0;
   border: 1px solid white;
   height: 25%;
+
 }
 
 
 .P2Display {
   margin: 0 auto;
   text-align: center;
-  padding: 1em;
+  padding: 0 1em 1em;
   border: 1px solid white;
   height: 25%;
-}
-
-.controls {
-  margin: 0 auto;
-  padding: 21%;
 }
 
 .P1Image {
@@ -37,7 +34,8 @@ body {
   padding: 1em 1em 0;
   background-color: black;
   margin: 1em 1em 0;
-  border: 1px solid white;
+  border: 2px solid white;
+  border-radius: 10px 10px 0 0;
 }
 
 
@@ -46,9 +44,32 @@ body {
   padding: 0em 1em 1em;
   background-color: black;
   margin: 0em 1em 1em;
+  border: 2px solid white;
+  border-radius: 0 0 10px 10px;
+}
+
+.P1Text {
+  position: absolute;
+  background-color: black;
+  border-radius: 0 0 12px 0px;
   border: 1px solid white;
+
+}
+
+.P2Text {
+  position: absolute;
+  background-color: black;
+  border-radius: 0 0 12px 0;
+  border: 1px solid white;
+
 }
 
 .clearfix {
   overflow: auto;
+}
+
+.controls {
+  width: 33%;
+  margin: 1em auto;
+  position: relative;
 }
