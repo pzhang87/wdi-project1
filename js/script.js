@@ -90,8 +90,8 @@ function initGame(){
   dealDecks();
   isRunning = true;
 
-  $(".P1Class").removeClass("hide");
-  $(".P1Class").removeClass("hide");
+  $(".P1Text").removeClass("hide");
+  $(".P2Text").removeClass("hide");
 
 
   $("#p1shuffle").on("click", function(){
