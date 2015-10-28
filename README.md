@@ -2,23 +2,39 @@
 
 Readme file for WDI Project 1.
 
-I chose to program War, using HTML, CSS and JS.
+## Introduction
 
-## Comments
+A game of War, featuring the four elements instead of boring old suits, and a
+slightly modified tie rule to make things more interesting. Done in HTML, CSS and
+Javascript.
 
-The key feature I spent most of the time on this project on how the game should
-resolve ties. In the beginning, I used pre-filled dummy decks, constructing a
-function that would grab the first element of each (simulating the flip), store it
-into an array (putting the cards into play), comparing the values of the active
-cards (resolving the trick) and then adding the array back into the winner's deck
-(awarding the trick). The main motivation for this was to be able to resolve a
-tie situation (War), wagering any number of cards, in an efficient way.
+Card objects are constructed with (value, suit, rank), and pushed into an array
+for each player deck.  The top card of each player's deck is put in-play, and then
+compared against the opponent's to decide which player is awarded the trick. In
+the case of a tie, each player puts in cards equal to the value of the tied card,
+with the last card determining who wins the trick. (Repeat in case of further ties.)
 
-Later on, I moved on to using an object constructor to create arrays of card objects,
-in anticipation of potential features that could be implemented with suits, card
-values, etc.
+## Comments:
 
-#### war -- user stories
+Overall not a bad project in terms of figuring out the game logic, but in retrospect
+the design could use some serious work. CSS is a pain - I think there might be some
+unneeded clearfixes or styling attributes. Also, from a UX/design perspective it
+seems like there's potentially too much going on visually, and not enough to show
+clear winner/loser.
+
+Potential directions for refactor:
+* updateDisplay function to take an argument of "player" to update information
+* create a Player object constructor that contains player info + deck constructor
+
+Potential directions for new features:
+* Use setTimeout to better simulate cards being 'played' on the field
+* Add a button to speed up things affected by setTimeout implementation
+
+## Known Issues:
+* resolveWar function continues to run after a player has run out of cards
+
+
+#### appendix -- user stories
 
 As a user, I want to be able to create a deck of cards that will allow me to play the game.
 
