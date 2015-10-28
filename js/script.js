@@ -105,13 +105,6 @@ function playTurn(){
     advanceDeck(1);
     updateDisplay();
 
-    //debug code
-    testArray = [];
-    for (var i = 0; i < inPlay.length; i++) {
-      testArray.push(inPlay[i].val);
-      }
-    console.log("In Play: " + testArray);
-
     resolveBattle(p1Card, p2Card);
     updateAnimations();
     checkWinner();
@@ -128,9 +121,7 @@ function updateDisplay(){
     $(".P2Text").html(p2Card.rank + p2Card.suit.abrv);
     $(".P1Image").css("background-color", p1Card.suit.color);
     $(".P2Image").css("background-color", p2Card.suit.color);
-    $("#P1cardface").fadeIn();
     $("#P1cardface").attr("src", p1Card.suit.img)
-    $("#P2cardface").fadeIn();
     $("#P2cardface").attr("src", p2Card.suit.img)
   }
   else {

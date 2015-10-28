@@ -1,6 +1,24 @@
 # wdi-project1
 
-war -- user stories
+Readme file for WDI Project 1.
+
+I chose to program War, using HTML, CSS and JS.
+
+## Comments
+
+The key feature I spent most of the time on this project on how the game should
+resolve ties. In the beginning, I used pre-filled dummy decks, constructing a
+function that would grab the first element of each (simulating the flip), store it
+into an array (putting the cards into play), comparing the values of the active
+cards (resolving the trick) and then adding the array back into the winner's deck
+(awarding the trick). The main motivation for this was to be able to resolve a
+tie situation (War), wagering any number of cards, in an efficient way.
+
+Later on, I moved on to using an object constructor to create arrays of card objects,
+in anticipation of potential features that could be implemented with suits, card
+values, etc.
+
+#### war -- user stories
 
 As a user, I want to be able to create a deck of cards that will allow me to play the game.
 
