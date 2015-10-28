@@ -28,7 +28,7 @@ body {
   border: 1px solid white;
   height: 25%;
   border-radius: 10px 10px 0 0;
-  background-color: black;
+  background-color: #444444;
 }
 
 
@@ -39,7 +39,7 @@ body {
   border: 1px solid white;
   height: 25%;
   border-radius: 0 0 10px 10px;
-  background-color: black;
+  background-color: #222222;
 
 }
 
@@ -53,6 +53,16 @@ body {
   background-color: black;
   margin: 1em 1em 0;
   border-radius: 10px 10px 0 0;
+}
+
+#P1cardface {
+  height: 200px;
+  width: 150px;
+}
+
+#P2cardface {
+  height: 200px;
+  width: 150px;
 }
 
 

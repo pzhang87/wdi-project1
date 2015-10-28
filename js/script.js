@@ -90,20 +90,11 @@ function initGame(){
   dealDecks();
   isRunning = true;
 
-  $(".P1Text").removeClass("hide");
-  $(".P2Text").removeClass("hide");
-  $(".P1Deck").html("Cards Remaining: " + (deck1.length).toString());
-  $(".P2Deck").html("Cards Remaining: " + (deck2.length).toString());
-
   $("#p1shuffle").on("click", function(){
     shuffle(deck1);
   });
   $("#p2shuffle").on("click", function(){
     shuffle(deck2);
-  });
-  $("#fastmode").on("click", function(){
-    fastMode = !fastMode;
-    fastmode ? $("#fastmode").html("Fast Mode: ON") : $("#fastmode").html("Fast Mode: OFF");
   });
   playTurn();
 }
