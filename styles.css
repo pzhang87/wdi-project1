@@ -2,13 +2,16 @@ body {
   color: white;
   background-color: black;
   font-family: Papyrus, fantasy, sans-serif;
+  background-image: url("images/background.jpg");
+  background-size: 100%;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 
 .container {
   margin: 0 auto;
   position: relative;
   left: 33%;
-  background-image: images/background.jpg;
 }
 
 .board {
@@ -25,6 +28,7 @@ body {
   border: 1px solid white;
   height: 25%;
   border-radius: 10px 10px 0 0;
+  background-color: black;
 }
 
 
@@ -35,6 +39,7 @@ body {
   border: 1px solid white;
   height: 25%;
   border-radius: 0 0 10px 10px;
+  background-color: black;
 
 }
 
@@ -47,7 +52,6 @@ body {
   padding: 1em 1em 0;
   background-color: black;
   margin: 1em 1em 0;
-  border: 2px solid white;
   border-radius: 10px 10px 0 0;
 }
 
@@ -57,7 +61,6 @@ body {
   padding: 0em 1em 1em;
   background-color: black;
   margin: 0em 1em 1em;
-  border: 2px solid white;
   border-radius: 0 0 10px 10px;
 }
 
@@ -126,4 +129,9 @@ body {
    0% {-webkit-transform: scale(1, 1); opacity: 0.75;}
    50% {-webkit-transform: scale(1, 1); opacity: 0.25;}
    100% {-webkit-transform: scale(1, 1); opacity: 0.75;}
+}
+
+.button {
+  background-color: black;
+  border-radius: 6px;
 }

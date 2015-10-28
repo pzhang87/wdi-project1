@@ -187,6 +187,7 @@ function resolveBattle(p1Card, p2Card){
 }
 
 function resolveWar(cardVal){
+  updateDisplay();
   alert("War!")
   advanceDeck(cardVal);
   alert(cardVal + " cards set!");
