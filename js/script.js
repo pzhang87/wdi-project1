@@ -1,3 +1,8 @@
+// NHO: Would be good idea, and best practice to wrap our code in a document.ready function:
+$(document).ready(function(){
+
+// NHO: In general, would caution against setting defaults in the global scope.
+// How could we store these values under a different name space?
 var deck1, deck2, p1Card, p2Card;
 var inPlay = [];
 turns = 0;
@@ -32,7 +37,7 @@ suits = [Earth = {
 ranks = ["2", "3", "4", "5", "6", "7", "8", "9", "10", "J", "Q", "K", "A"];
 val = [2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14]
 
-function Card(rank, suit, val) {
+function Card(rank, suit, val) { // NHO: Love this constructor function, nice!
   this.rank = rank;
   this.suit = suit;
   this.val = val;
@@ -48,7 +53,8 @@ function createDeck(){
   }
 }
 
-//copypasta shuffle code - Fischer-Yates
+//copypasta shuffle code - Fischer-Yates // NHO: as long as you feel comfortable explaining it
+
 
 function shuffle(array) {
     var counter = array.length, temp, index;
@@ -74,12 +80,13 @@ function dealDecks(){
   deck1 = mainDeck.splice(0, 26);
   deck2 = mainDeck;
 
+//  NHO: remember to remove unused code
   // test decks
   // deck1 = [new Card("2", "A", "2"), new Card("3", "A", "3")]
   // deck2 = [new Card("2", "A", "2")]
 }
 
-function initGame(){
+function initGame(){ // NHO: really liked how you organized your code in this function!
   deck1, deck2, p1Card, p2Card;
   inPlay = [];
   turns = 0;
@@ -103,7 +110,7 @@ function initGame(){
   playTurn();
 }
 
-function playTurn(){
+function playTurn(){ // NHO: Very clear procedural code, nice job breaking these steps into seperate functions!
   if (isRunning) {
     clearAnimations();
     advanceDeck(1);
@@ -119,9 +126,9 @@ function playTurn(){
     }
   }
 
-function updateDisplay(){
+function updateDisplay(){ // NHO: I find myself thinking this would be increadibly useful as a method on an object!
   if ((p1Card && p2Card)) {
-    $(".P1Text").html(p1Card.rank + p1Card.suit.abrv);
+    $(".P1Text").html(p1Card.rank + p1Card.suit.abrv); // NHO: really liked how you mapped a card's relevant values to an object
     $(".P2Text").html(p2Card.rank + p2Card.suit.abrv);
     $(".P1Image").css("background-color", p1Card.suit.color);
     $(".P2Image").css("background-color", p2Card.suit.color);
@@ -149,7 +156,7 @@ function advanceDeck(adv){
       console.log(testArray);
     }
     else {
-      alert(((deck1.length < deck2.length) ? "Player 1" : "Player 2") + " ran out of cards!")
+      alert(((deck1.length < deck2.length) ? "Player 1" : "Player 2") + " ran out of cards!") // NHO: nice ternary!
       break;
     }
   }
@@ -159,7 +166,7 @@ function resolveBattle(p1Card, p2Card){
   updateDisplay();
   if ((p1Card && p2Card)) {
     if (p1Card.val > p2Card.val) {
-      deck1 = deck1.concat(inPlay);
+      deck1 = deck1.concat(inPlay); // NHO: first well utilized use-case for concat I've seen!
     }
     else if (p2Card.val > p1Card.val) {
       deck2 = deck2.concat(inPlay);
@@ -175,7 +182,7 @@ function resolveBattle(p1Card, p2Card){
 function resolveWar(cardVal){
   updateDisplay();
   alert("War!")
-  advanceDeck(cardVal);
+  advanceDeck(cardVal); // NHO: interesting spin on the game of war, I like it!
   alert(cardVal + " cards set!");
   resolveBattle(p1Card, p2Card);
 
@@ -193,7 +200,7 @@ function clearAnimations(){
   $(".P1Image").removeClass("turnWinner turnLoser")
   $(".P2Image").removeClass("turnWinner turnLoser")
 }
-
+  // NHO: Really like this feature to enhance the user experience!
 function updateAnimations(){
   if (p1Card.val < p2Card.val) {
     $(".P1Image").addClass("turnLoser");
@@ -206,7 +213,8 @@ function updateAnimations(){
 }
 
 //debug function
-
+// NHO: I noticed some of the `cards` are unevenely removed from the `deck`.
+// i.e. The final display after a game consistently showed less than 52 cards in total?
 function deckStatus(deck){
   var checkedDeck = [];
   for (var i = 0; i < deck.length; i++) {
@@ -219,5 +227,10 @@ $("#newgame").on("click", initGame)
 $("#battle").on("click", playTurn)
 $("#secret").on("click", function(){
   alert("You've activated my trap card!")
-  document.location="https://www.youtube.com/watch?v=3Wyn1nH8XZ4"
+  document.location="https://www.youtube.com/watch?v=3Wyn1nH8XZ4" // NHO: Classic!
 });
+
+}); // close document.ready
+
+// NHO: Overall, great job! Something to think about moving forward:
+// How could you refactor this to take an OOJS approach?

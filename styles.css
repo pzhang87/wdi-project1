@@ -115,7 +115,10 @@ body {
   top: 425px;
   width: 22px;
 }
-
+/*
+  NHO: Nice job including animations! We'll go over these more in depth later in the course,
+  but cool to see you using them for your first project!
+*/
 
 .turnWinner {
   -webkit-animation: pulsate 1s ease-out;
